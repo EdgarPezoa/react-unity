@@ -2,11 +2,11 @@ import React from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 function App() {
-	const { unityProvider } = useUnityContext({
-		loaderUrl: "/mygame/mygame3.loader.js",
-		dataUrl: "/mygame/mygame3.data",
-		frameworkUrl: "/mygame/mygame3.framework.js",
-		codeUrl: "/mygame/mygame3.wasm",
+	const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
+		loaderUrl: "/shipgame/shipgame.loader.js",
+		dataUrl: "/shipgame/shipgame.data",
+		frameworkUrl: "/shipgame/shipgame.framework.js",
+		codeUrl: "/shipgame/shipgame.wasm",
 	});
 
 	return (
@@ -18,9 +18,19 @@ function App() {
 			}}
 		>
 			<h1 style={{ width: "100%", textAlign: "center" }}>My ship game</h1>
+			{!isLoaded && (
+				<p>
+					Loading Application...{" "}
+					{Math.round(loadingProgression * 100)}%
+				</p>
+			)}
 			<Unity
 				unityProvider={unityProvider}
-				style={{ width: 480, height: 854 }}
+				style={{
+					width: 480,
+					height: 854,
+					visibility: isLoaded ? "visible" : "hidden",
+				}}
 			/>
 		</div>
 	);
