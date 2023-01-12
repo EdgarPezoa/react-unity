@@ -24,14 +24,32 @@ function App() {
 					{Math.round(loadingProgression * 100)}%
 				</p>
 			)}
-			<Unity
-				unityProvider={unityProvider}
-				style={{
-					width: 480,
-					height: 854,
-					visibility: isLoaded ? "visible" : "hidden",
-				}}
-			/>
+			<div style={{ display: "flex", width: "100%" }}>
+				<div
+					style={{
+						width: "33%",
+						paddingLeft: "10px",
+						textAlign: "center",
+					}}
+				>
+					<h4>Instrucciones</h4>
+					<p>
+						<b>Movimiento</b>: Mouse
+					</p>
+					<p>
+						<b>Disparar</b>: Click primario
+					</p>
+					<p>¡Destruye monos!</p>
+				</div>
+				<Unity
+					unityProvider={unityProvider}
+					style={{
+						width: 480,
+						height: 854,
+						visibility: isLoaded ? "visible" : "hidden",
+					}}
+				/>
+			</div>
 		</div>
 	);
 }
