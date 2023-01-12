@@ -41,14 +41,22 @@ function App() {
 					</p>
 					<p>¡Destruye monos!</p>
 				</div>
-				<Unity
-					unityProvider={unityProvider}
+				<div
 					style={{
-						width: 480,
-						height: 854,
-						visibility: isLoaded ? "visible" : "hidden",
+						width: "33%",
+						paddingLeft: "10px",
+						textAlign: "center",
 					}}
-				/>
+				>
+					<Unity
+						unityProvider={unityProvider}
+						style={{
+							width: 480,
+							height: 854,
+							visibility: isLoaded ? "visible" : "hidden",
+						}}
+					/>
+				</div>
 			</div>
 		</div>
 	);
